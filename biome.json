@@ -1,9 +1,56 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on",
+				"useSortedAttributes": "on",
+				"useSortedKeys": "on",
+				"useSortedProperties": "on"
+			}
+		},
+		"includes": ["**", "!**/package.json"]
+	},
+	"extends": ["./mongo.json"],
+	"files": {
+		"ignoreUnknown": true,
+		"includes": [
+			"**",
+			"!**/.next",
+			"!**/build",
+			"!**/client",
+			"!**/dist",
+			"!**/node_modules",
+			"!**/bun.lock",
+			"!**/tmp",
+			"!**/temp"
+		]
+	},
+	"formatter": {
+		"formatWithErrors": false,
+		"lineWidth": 110,
+		"useEditorconfig": true
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"lineEnding": "lf",
+			"quoteStyle": "single",
+			"semicolons": "asNeeded",
+			"trailingCommas": "all"
+		},
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
+		}
+	},
 	"linter": {
-		"enabled": true,
 		"rules": {
-			"recommended": true
+			"style": {
+				"useLiteralEnumMembers": "off"
+			},
+			"suspicious": {
+				"noThenProperty": "off"
+			}
 		}
 	}
 }
